@@ -1,0 +1,14 @@
+
+A = zeros(100, 100);
+Cx = 50;
+Cy = 50;
+Radius = 20;
+for i = 1:100
+    for j = 1:100
+        if sqrt((Cx - i)^2 + (Cy - j)^2) <= Radius
+            A(i, j) = 255; % Assign value for Euclidean distance
+        end
+    end
+end
+imshow(A);
+title('Euclidean Distance');
