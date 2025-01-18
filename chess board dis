@@ -1,0 +1,11 @@
+A = zeros(100, 100);
+for i = 1:100
+    for j = 1:100
+        if max(abs(Cx - i), abs(Cy - j)) <= Radius
+            A(i, j) = 255; 
+        end
+    end
+end
+figure;
+imshow(A);
+title('Chessboard Distance');
