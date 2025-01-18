@@ -1,0 +1,14 @@
+A = zeros(100, 100);
+
+% For City Block (Manhattan) Distance
+for i = 1:100
+    for j = 1:100
+        % City Block distance formula
+        if abs(Cx - i) + abs(Cy - j) <= Radius
+            A(i, j) = 255; % Assign value for City Block distance
+        end
+    end
+end
+figure;
+imshow(A);
+title('City Block Distance');
