@@ -1,0 +1,28 @@
+Feature Extraction:
+
+Boundary Detection:
+Code:
+% Read the image
+Coins = imread('coins.png');
+
+% Convert the image to binary
+CoinsBW = im2bw(Coins);
+
+% Fill holes in the binary image
+FilledCoinsBW = imfill(CoinsBW, 'holes');
+
+% Extract boundaries of objects
+boundaries = bwboundaries(FilledCoinsBW);
+
+% Display the original image
+imshow(Coins);
+hold on;
+
+% Plot the boundary of the 2nd object in red
+plot(boundaries{2}(:,2), boundaries{2}(:,1), 'r', 'LineWidth', 2);
+
+% Plot the boundary of the 7th object in green
+plot(boundaries{7}(:,2), boundaries{7}(:,1), 'g', 'LineWidth', 2);
+
+hold off;
+CoinsBW = imbinarize(rgb2gray(Coins));
