@@ -1,0 +1,28 @@
+Region Properties:
+Code:
+% Read the image
+I = imread('coins.png');
+
+% Convert to binary
+Ibw = im2bw(I);
+
+% Fill holes in detected objects
+Ibw = imfill(Ibw, 'holes');
+
+% Label all connected objects
+Ilabel = bwlabel(Ibw);
+
+% Compute centroids of labeled regions
+stat = regionprops(Ilabel, 'centroid');
+
+% Display the original image
+imshow(I);
+hold on;
+
+% Overlay red circles at centroids
+for x = 1:numel(stat)
+    plot(stat(x).Centroid(1), stat(x).Centroid(2), 'ro');
+end
+
+hold off;
+Ibw = imbinarize(rgb2gray(I));
